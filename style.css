@@ -1,0 +1,122 @@
+:root{
+  --pokeball-width: 400px;
+  --pokeball-height: 400px;
+  --pokeball-top-width: 380px;
+  --pokeball-top-height: 180px;
+  --pokeball-bottom-width: 380px;
+  --pokeball-bottom-height: 180px;
+}
+
+.pokeball {
+  position: relative;
+  margin-inline: auto;
+  width: var(--pokeball-width);
+  height: var(--pokeball-height);
+  border-radius: 50%;
+}
+
+.top {
+  width: calc(var(--pokeball-width) - 10px);
+  height: calc(var(--pokeball-height)/2 - 15px);
+  border-width: 5px 5px 10px 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: red;
+  border-radius: 200px 200px 0 0;
+}
+
+.bottom {
+  width: calc(var(--pokeball-width) - 10px);
+  height: calc(var(--pokeball-height)/2 - 15px);
+  border-width: 10px 5px 5px 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: #FFF;
+  left: 0px;
+  border-radius: 0 0 200px 200px;
+  position: absolute;
+
+}
+
+.middle_circle {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #FFF;
+  border: 20px solid black;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+}
+
+.button {
+  width: 50px;
+  height: 50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 5px solid black;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball:hover {
+  animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+.pokeball:hover .button {
+  animation: blink 0.8s alternate infinite;
+}
+
+@keyframes blink {
+  from {
+    background: #eee;
+  }
+
+  to {
+    background: #e74c3c;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+
+  20% {
+    transform: translate(-40px, 0) rotate(-20deg);
+  }
+
+  30% {
+    transform: translate(40px, 0) rotate(20deg);
+  }
+
+  50% {
+    transform: translate(-40px, 0) rotate(-10deg);
+  }
+
+  60% {
+    transform: translate(40px, 0) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+.pokeball__button {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 30px;
+  background: #7f8c8d;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 8px black;
+  animation: blink 0.5s alternate infinite;
+}
